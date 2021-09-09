@@ -10,7 +10,7 @@ ARG PYTORCH_VERSION=1.8.1+cu111
 ARG PYTORCH_LIGHTNING_VERSION=1.2.9
 ARG TORCHVISION_VERSION=0.9.1+cu111
 ARG CUDNN_VERSION=8.1.1.33-1+cuda11.2
-ARG NCCL_VERSION=2.8.4-1+cuda11.2
+ARG NCCL_VERSION_HOROVOD=2.8.4-1+cuda11.2
 ARG MXNET_VERSION=1.8.0.post0
 
 ARG PYSPARK_PACKAGE=pyspark==3.1.1
@@ -32,8 +32,8 @@ RUN apt-get update && apt-get install -y --allow-downgrades --allow-change-held-
         wget \
         ca-certificates \
         libcudnn8=${CUDNN_VERSION} \
-        libnccl2=${NCCL_VERSION} \
-        libnccl-dev=${NCCL_VERSION} \
+        libnccl2=${NCCL_VERSION_HOROVOD} \
+        libnccl-dev=${NCCL_VERSION_HOROVOD} \
         libjpeg-dev \
         libpng-dev \
         python${PYTHON_VERSION} \
